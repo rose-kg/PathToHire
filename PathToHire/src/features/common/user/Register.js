@@ -12,9 +12,10 @@ import {
 } from "@mui/material";
 import { useState } from "react";
 
-const Login = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
+    email: "",
     password: "",
     rememberMe: false,
   });
@@ -143,4 +144,4 @@ const Login = () => {
     </Box>
   );
 };
-export default Login;
+export default Register;
