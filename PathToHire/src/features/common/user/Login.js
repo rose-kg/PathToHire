@@ -11,16 +11,17 @@ import {
   Link,
 } from "@mui/material";
 import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
     rememberMe: false,
   });
 
   const [errors, setErrors] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -28,8 +29,8 @@ const Login = () => {
     let valid = true;
     const newErrors = { username: "", password: "" };
 
-    if (!formData.username) {
-      newErrors.username = "Username is required";
+    if (!formData.email) {
+      newErrors.email = "Email is required";
       valid = false;
     }
 
@@ -88,12 +89,12 @@ const Login = () => {
       >
         <TextField
           fullWidth
-          label="Username"
-          name="username"
-          value={formData.username}
+          label="Email"
+          name="email"
+          value={formData.email}
           onChange={handleChange}
-          error={Boolean(errors.username)}
-          helperText={errors.username}
+          error={Boolean(errors.email)}
+          helperText={errors.email}
           margin="normal"
         />
         <TextField
@@ -130,11 +131,11 @@ const Login = () => {
           Login
         </Button>
         <Box sx={{ mt: 2, textAlign: "center" }}>
-          <Link href="#" variant="body2">
-            Forgot Password?
-          </Link>
+          <Link component={RouterLink} to="/forgot-password" variant="body2">
+  Forgot Password?
+</Link>
           <Box mt={1}>
-            <Link href="#" variant="body2">
+            <Link component={RouterLink} to="/register" variant="body2">
               Don't have an account? Sign Up
             </Link>
           </Box>
